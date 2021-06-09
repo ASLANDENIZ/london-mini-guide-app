@@ -14,6 +14,11 @@ app.use(cors());
 const PORT = process.env.PORT || 4000;
 // let's check changes!!
 
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    next();
+});
+
 app.get("/", (req, res) => {
     res.send("routes")
 })
